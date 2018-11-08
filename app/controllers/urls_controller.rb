@@ -8,7 +8,8 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
     if already_in_db(unify_link(@url.long))
-      render 'test'
+      @url2 = Url.find_by(long: unify_link(@url.long))
+      redirect_to done_path(@url2.short)
     else
       @url.short = generate_link
       @url.save
@@ -18,7 +19,7 @@ class UrlsController < ApplicationController
 
   def show
     @url = Url.find_by(short: params[:short])
-    redirect_to "https://#{@url.long}"
+    redirect_to "http://#{@url.long}"
   end
 
   def done

@@ -1,8 +1,13 @@
-<h1>Shorten the link</h1>
+<h1 class="center margin">Shorten the link</h1>
+<div class="row">
+  <%= form_for(@url, url:'') do |f| %>
+    <div class= "center margin">
+      <div class="row">
+        <%= f.label :long, "Original Link" %>
 
-<%= form_for(@url, url:'') do |f| %>
-  <%= f.label :long, "Original Link" %>
-  <%= f.text_field :long, class:'form-control' %>
-
-  <%= f.submit "Shorten", class: "btn btn-primary" %>
-<% end %>
+        <%= f.text_field :long, class:'form-control' %>
+        <%= f.submit "Shorten", class: "btn btn-success " %>
+      </div>
+    </div>
+  <% end %>
+</div>

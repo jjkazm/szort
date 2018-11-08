@@ -1,5 +1,14 @@
-<h1>Done</h1>
-
-<%= @url.long %>
-
-<a href="/<%= @url.short %>" target="_blank" ><%= base_url %><%= @url.short %></a>
+<h1 class="center margin">Its done</h1>
+<div class = "row ">
+  <div class= "card col-md-6 center margin">
+    <h2> Original link:</h2>
+    <%= @url.long %>
+  </div>
+  <div class= "card col-md-6 center margin">
+    <h2> Short version:</h2>
+    <a href="/<%= @url.short %>" target="_blank" ><%= base_url %><%= @url.short %></a>
+  </div>
+</div>
+<div class = "row center margin">
+  <a href="/" class="btn btn-primary">Shorten another link</a>
+</div>
