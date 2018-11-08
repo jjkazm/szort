@@ -1,2 +1,8 @@
-<h1>Urls#new</h1>
-<p>Find me in app/views/urls/new.html.erb</p>
+<h1>Shorten the link</h1>
+
+<%= form_for(@url, url:'') do |f| %>
+  <%= f.label :long, "Original Link" %>
+  <%= f.text_field :long, class:'form-control' %>
+
+  <%= f.submit "Shorten", class: "btn btn-primary" %>
+<% end %>
