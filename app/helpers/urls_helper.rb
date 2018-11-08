@@ -6,9 +6,8 @@ module UrlsHelper
   end
 
   # Checks if url is already in database
-  def already_in_db?
-    !!User.find_by(long: url[:long])
+  def already_in_db(string)
+    !!Url.find_by(long: string)
   end
-  
-  end
+
 end

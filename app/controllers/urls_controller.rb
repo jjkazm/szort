@@ -6,9 +6,13 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-    @url.short = generate_link
-    @url.save
-    redirect_to done_path(@url.short)
+    if already_in_db(@url.long)
+      render 'test'
+    else
+      @url.short = generate_link
+      @url.save
+      redirect_to done_path(@url.short)
+    end
   end
 
   def show
