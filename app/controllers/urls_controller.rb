@@ -1,12 +1,13 @@
 class UrlsController < ApplicationController
   include UrlsHelper
+
   def new
     @url = Url.new
   end
 
   def create
     @url = Url.new(url_params)
-    if already_in_db(@url.long)
+    if already_in_db(unify_link(@url.long))
       render 'test'
     else
       @url.short = generate_link

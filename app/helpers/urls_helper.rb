@@ -10,4 +10,17 @@ module UrlsHelper
     !!Url.find_by(long: string)
   end
 
+  # Prepares original link to be saved in database
+  def unify_link(s)
+   s = s.downcase.sub(/^https?\:\/\//, '').sub(/^www./,'').sub(/^http?\:\/\//, '')
+ end
+
+ # Sets up url depending on Rails environment
+ def base_url
+   if Rails.env.development? || Rails.env.test?
+     "http://localhost:3000/"
+   else
+     "https://szort.herokuapp.com/"
+   end
+ end
 end
