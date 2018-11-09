@@ -26,6 +26,11 @@ class UrlsController < ApplicationController
     @url = Url.find_by(short: params[:short])
   end
 
+  protected
+    def resource_not_found
+      redirect_to root_path
+    end
+
   private
     def url_params
       params.require(:url).permit(:long, :short)
