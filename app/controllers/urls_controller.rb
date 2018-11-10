@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
       @url2 = Url.find_by(long: unify_link(@url.long))
       redirect_to done_path(@url2.short)
     else
-      @url.short = generate_link
+      @url.short = generate_uniq_link
       @url.save
       redirect_to done_path(@url.short)
     end

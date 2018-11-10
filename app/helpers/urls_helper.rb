@@ -5,6 +5,15 @@ module UrlsHelper
     (("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a).sample(8).join
   end
 
+  def generate_uniq_link
+     result = generate_link
+    if(Url.find_by(short: generate_link))
+      generate_uniq_link
+    else
+      result
+    end
+  end
+
   # Checks if url is already in database
   def already_in_db(string)
     !!Url.find_by(long: string)
