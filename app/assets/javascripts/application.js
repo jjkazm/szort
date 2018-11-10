@@ -17,3 +17,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function copyToClipboard(){
+  // Get the link to be copied
+  var short = document.getElementById("short");
+
+  // Create temporary input as copying link text is not supported by execCommand
+  // method
+  var input = document.createElement("INPUT");
+  input.setAttribute("type", "text");
+  input.setAttribute("value", short.innerText);
+  input.setAttribute("id", "temp_input");
+
+  // Temporarly display the input under parent
+  var parentDiv = document.getElementById("parent");
+  parentDiv.insertBefore(input, short);
+
+  //Copy the link to the clipboard
+  input.select()
+  document.execCommand("copy");
+
+  //Delete the input as it's not needed anymore
+  input.parentNode.removeChild(input)
+}
