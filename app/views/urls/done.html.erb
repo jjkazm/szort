@@ -1,14 +1,22 @@
 <h1 class="center margin">Its done</h1>
 <div class = "row ">
-  <div class= "card col-md-6 center margin">
+  <div class= "card col-md-4 offset-md-1 center margin">
     <h2> Original link:</h2>
     <%= @url.long %>
   </div>
-  <div class= "card col-md-6 center margin">
+  <div class= "card col-md-4 offset-md-2 center margin">
     <h2> Short version:</h2>
     <a href="/<%= @url.short %>" target="_blank" ><%= base_url %><%= @url.short %></a>
+    <div class="col-md-8 offset-md-2">
+      <button onclick="myFunction()" class="btn btn-sm btn-success">Copy text</button>
+    </div>
   </div>
 </div>
-<div class = "row center margin">
-  <a href="/" class="btn btn-primary">Shorten another link</a>
+<div class = "row margin">
+  <div class="col-md-8 offset-md-2">
+    <a href="/" class="btn btn-primary wide">Shorten another link</a>
+  </div>
+</div>
+<div class= "row outer">
+  <div class = "dog col-md-12"></div>
 </div>

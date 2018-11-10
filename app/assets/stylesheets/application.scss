@@ -1,10 +1,38 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+$main_background: #ffee84;
 .center {
-  align: center;
+  text-align: center;
   padding: 20px 0 20px 0
 }
 
 .margin{
-  margin: 30px 0 30px 0
+  margin-bottom: 30px
+}
+
+.wide{
+  width: 100%
+}
+
+body{
+  background-image: url("/szort.png");
+  background-repeat: repeat;
+}
+
+.container{
+  background-color: $main_background;
+  height: 100vh
+}
+
+.dog{
+  height: 40vh;
+  background: url(/dachshund.png) no-repeat center;
+   -webkit-background-size: contain;
+   -moz-background-size: contain;
+   -o-background-size: contain;
+   background-size: contain;
+}
+
+.outer{
+  overflow: hidden;
 }
