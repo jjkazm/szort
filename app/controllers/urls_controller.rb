@@ -1,5 +1,6 @@
 class UrlsController < ApplicationController
   include UrlsHelper
+  before_action :set_url, only:[:show, :done]
 
   def new
     @url = Url.new
@@ -12,8 +13,11 @@ class UrlsController < ApplicationController
       redirect_to done_path(@url2.short)
     else
       @url.short = generate_uniq_link
-      @url.save
-      redirect_to done_path(@url.short)
+      if @url.save
+        redirect_to done_path(@url.short)
+      else
+        render 'new'
+      end
     end
   end
 
@@ -34,6 +38,10 @@ class UrlsController < ApplicationController
   private
     def url_params
       params.require(:url).permit(:long, :short)
+    end
+
+    def set_url
+      Url.find_by(short: params[:short])
     end
 
 end
