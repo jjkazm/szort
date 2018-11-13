@@ -1,0 +1,12 @@
+<% if @url.errors.any? %>
+  <div class="alert alert-danger">
+    <div>
+      This link can't be shorten due to  <%= pluralize(@url.errors.count, "error") %>
+    </div>
+    <ul>
+    <% @url.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
