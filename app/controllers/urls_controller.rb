@@ -23,7 +23,7 @@ class UrlsController < ApplicationController
 
   def show
     @url = Url.find_by(short: params[:short])
-    redirect_to "http://#{@url.long}"
+    redirect_to "https://#{@url.long}"
   end
 
   def done
