@@ -10,7 +10,7 @@ RSpec.feature "Shortening url", js:true do
     expect(page).not_to have_content("www.google.com")
     new_window = window_opened_by { click_link "localhost" }
     within_window new_window do
-      expect(current_url).to eq "https://www.google.com/"
+      expect(current_url).to eq "https://www.google.com/?gws_rd=ssl"
     end
   end
 
